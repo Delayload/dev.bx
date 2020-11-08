@@ -1,7 +1,8 @@
 <?php
 
 require_once 'readFromConsole.php';
-require_once 'assertEquals.php.php';
+
+require_once 'assertEquals.php';
 
 function testReadFromConsole()
 {
