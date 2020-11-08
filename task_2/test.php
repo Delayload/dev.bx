@@ -28,7 +28,7 @@ function testReadFromConsole()
 //testReadFromConsole();
 
 
-assertEquals(3,readFromConsole('Ввод в консоль "3" '), 'Результат теста: ');
+assertEquals(!stop,readFromConsole('Ввод в консоль "3" '), 'Результат теста: ');
 /*
 readFromConsole('', 'true') - true;
 readFromConsole('', 'false') - false;
