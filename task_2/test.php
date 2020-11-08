@@ -1,6 +1,7 @@
 <?php
 
-require_once 'readFromConsole.php'; //default
+require_once 'readFromConsole.php';
+require_once 'assertEquals.php.php';
 
 function testReadFromConsole()
 {
@@ -23,7 +24,10 @@ function testReadFromConsole()
 	echo 'Результат ввода: '. var_export($result,true) . '. Результат теста: ' . ($result === test ? ' passed': 'failed').PHP_EOL.PHP_EOL;
 }
 
-testReadFromConsole();
+//testReadFromConsole();
+
+
+assertEquals(3,readFromConsole('Ввод в консоль "3" '), 'Результат теста: ');
 /*
 readFromConsole('', 'true') - true;
 readFromConsole('', 'false') - false;
