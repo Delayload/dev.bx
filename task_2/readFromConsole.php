@@ -19,6 +19,8 @@ function readFromConsole(string $question)
 		case is_numeric($input):
 			$input = +$input;
 			break;
+		case '!stop':
+			$input = null;
 		default:
 			$input = (string)$input;
 	}
