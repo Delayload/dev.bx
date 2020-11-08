@@ -28,7 +28,12 @@ function testReadFromConsole()
 //testReadFromConsole();
 
 
-assertEquals(!stop,readFromConsole('Ввод в консоль "3" '), 'Результат теста: ');
+assertEquals(true,readFromConsole('Ввод в консоль "true" '), 'Результат теста: ');
+assertEquals(false,readFromConsole('Ввод в консоль "false" '), 'Результат теста: ');
+assertEquals(!stop,readFromConsole('Ввод в консоль "!stop" '), 'Результат теста: ');
+assertEquals(1.3,readFromConsole('Ввод в консоль "1.3" '), 'Результат теста: ');
+assertEquals(1,readFromConsole('Ввод в консоль "1"" '), 'Результат теста: ');
+assertEquals(test,readFromConsole('Ввод в консоль "test" '), 'Результат теста: ');
 /*
 readFromConsole('', 'true') - true;
 readFromConsole('', 'false') - false;
