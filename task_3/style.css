@@ -1,0 +1,172 @@
+a,
+h1,
+h2,
+h3,
+p,
+body {
+	margin: 0;
+}
+
+ul,
+li {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: Helvetica Neue, sans-serif;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+.header {
+	background-color: rgba(0, 101, 242, 0.12);;
+}
+
+.header__inner {
+	max-width: 540px;
+	width: 100%;
+	padding: 60px 0;
+	margin: 0 auto;
+}
+
+.header__title {
+	margin-bottom: 24px;
+
+	font-size: 40px;
+	line-height: 48px;
+	letter-spacing: -0.5px;
+	color: #000000;
+	text-align: center;
+}
+
+.header__subtitle {
+	margin-bottom: 40px;
+
+	font-size: 18px;
+	line-height: 24px;
+	color: #000000;
+	text-align: center;
+}
+
+.header__list {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	list-style: none;
+}
+
+.header__item {
+	margin: 0 16px 16px;
+}
+
+.wrap {
+	max-width: 1110px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.headline {
+	padding: 60px 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.headline__inner {
+	width: 445px;
+}
+
+.headline__title {
+	margin-bottom: 24px;
+
+	font-size: 56px;
+	line-height: 60px;
+	letter-spacing: -1px;
+	color: #000000;
+	text-align: start;
+}
+
+.headline__desc {
+	margin-bottom: 43px;
+
+	font-size: 18px;
+	line-height: 28px;
+	color: #000000;
+	text-align: start;
+}
+
+.headline__link {
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 28px;
+	color: #0065F2;
+	text-align: start;
+}
+
+.content {
+	padding-top: 40px;
+}
+
+.content__title {
+	margin-bottom: 40px;
+
+	font-size: 24px;
+	font-weight: 700;
+	letter-spacing: -0.1px;
+	line-height: 32px;
+	color: #000000;
+	text-align: start;
+}
+
+.content__subtitle {
+	margin-bottom: 16px;
+
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 28px;
+	color: #000000;
+	text-align: start;
+}
+
+.content__text {
+	margin-bottom: 16px;
+
+	font-size: 16px;
+	font-weight: 400;
+	letter-spacing: 0.1px;
+	line-height: 24px;
+	color: #000000;
+	text-align: start;
+}
+
+.content__text span {
+	color: #0065F2;
+}
+
+.content__text + .content__text {
+	margin: 26px 0;
+}
+
+.content__list {
+	list-style-type: disc;
+	list-style-position: inside;
+}
+
+.content__item {
+	font-size: 16px;
+	font-weight: 400;
+	letter-spacing: 0.1px;
+	line-height: 24px;
+	color: #000000;
+	text-align: start;
+}
+
+.content__item:not(:last-child) {
+	margin-bottom: 8px;
+}
