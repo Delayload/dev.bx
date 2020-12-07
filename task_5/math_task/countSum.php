@@ -3,31 +3,31 @@ require_once 'readFromConsole.php';
 require_once 'assertEquals.php';
 require 'convertType.php';
 
-function countSum() {
-	$resultArray = [];
-	$result = readFromConsole('Введите числа');
+function countSum($result) {
+	if ($result == null) {
+		$result = readFromConsole('Введите числа');
+	}
 	$inputArray = explode(" ", $result);
 
+	$max = -INF;
+	$colMax = 1;
+	$index = 0;
+
 	foreach ($inputArray as $value) {
+		$index++;
 		$value = convertType($value);
-		if (is_numeric($value)) {
-			array_push($resultArray, $value);
+
+		if (is_numeric($value) && $index < 21) {
+			if ($value > $max) {
+				$max = $value;
+				$colMax = 1;
+			} elseif ($value === $max) {
+				$colMax++;
+			}
 		}
 		elseif ($value === 'stop') {
 			break;
 		}
 	}
-	$max = -INF;
-	$colMax = 1;
-	foreach ($resultArray as $value) {
-		if ($value > $max) {
-			$max = $value;
-			$colMax = 1;
-		} elseif ($value === $max) {
-			$colMax++;
-		}
-	}
-	echo 'Количество элементов равное наибольшему элементу:'.$colMax;
+	return $colMax;
 }
-
-countSum();
