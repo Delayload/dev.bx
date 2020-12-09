@@ -27,4 +27,18 @@ class Calculator
 
 		return $a / $b;
 	}
+
+	public function exponentiation(int $a, int $b): float
+	{
+		return pow($a * $b);
+	}
+
+	public function squareRoot(int $a): float
+	{
+		if($a < 0)
+		{
+			throw new InvalidArgumentException('Argument cannot be negative');
+		}
+		return sqrt($a);
+	}
 }
