@@ -30,7 +30,7 @@ class Calculator
 
 	public function exponentiation(int $a, int $b): float
 	{
-		return pow($a * $b);
+		return pow($a, $b);
 	}
 
 	public function squareRoot(int $a): float
