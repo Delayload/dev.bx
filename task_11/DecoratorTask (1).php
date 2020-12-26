@@ -2,49 +2,26 @@
 
 interface Shape
 {
-	public function draw() : string;
+	public function draw():void;
 }
 
 class Square implements Shape
 {
-	public function draw() : string
+	public function draw():void
 	{
-		return "Shape Square\n";
+		echo "Shape Square\n";
 	}
 }
 
 class Circle implements Shape
 {
-	public function draw() : string
+	public function draw():void
 	{
-		return "Shape Circle\n";
+		echo "Shape Circle\n";
 	}
 }
 
 abstract class ColorDecorator implements Shape
-{
-	protected $shape;
-
-	public function __constructor(Shape $shape)
-	{
-		$this->shape = $shape;
-	}
-
-	public function draw() : string
-	{
-		return $this->shape->draw();
-	}
-}
-
-class RedColor extends ColorDecorator
-{
-	public function draw(): string
-	{
-		return "Red colored ".parent::draw();
-	}
-}
-
-class clientCode
 {
 	protected $shape;
 
@@ -53,16 +30,41 @@ class clientCode
 		$this->shape = $shape;
 	}
 
-	public function drawShape() : string
+	public function draw():void
 	{
-		return $this->shape->draw();
+		$this->shape->draw();
+	}
+}
+
+class RedColor extends ColorDecorator
+{
+	public function draw(): void
+	{
+		$this->red();
+		parent::draw();
+	}
+	public function red()
+	{
+		echo 'Red colored ';
+	}
+}
+
+class BlueColor extends ColorDecorator
+{
+	public function draw(): void
+	{
+		$this->blue();
+		parent::draw();
+	}
+	public function blue()
+	{
+		echo 'Blue colored ';
 	}
 }
 
 $square = new Square();
 $redShape = new RedColor($square);
-$shapeUser = new clientCode($redShape);
-$shapeUser->drawShape();
+$redShape->draw();
 /*
 	Необходимо воспользоваться шаблоном проектирования "Декоратор" для того, чтобы иметь возможность
 	"получать" в итоге фигуры разных цветов, например вызов декоратора:
