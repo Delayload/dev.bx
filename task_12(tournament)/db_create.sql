@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS stage
 	PRIMARY KEY (ID)
 );
 
-CREATE TABLE match
+CREATE TABLE game
 (
 	ID int not null auto_increment,
 	FIRST_TEAM_ID int,
