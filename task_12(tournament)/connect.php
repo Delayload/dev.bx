@@ -10,16 +10,23 @@ if (!$connectionResult)
 	trigger_error($error, E_USER_ERROR);
 }
 
-$query = "SELECT * FROM team";
+$ID = "1";
+$ID = (int)$ID;
+
+$query = "SELECT * FROM team WHERE ID = $ID";
 $result = $connection->query($query);
 if (!$result)
 {
 	trigger_error($connection, E_USER_ERROR);
 }
 
+$countries = [];
+
 while ($row = $result->fetch_assoc())
 {
-	print_r($row);
+	$countries[] = $row;
 }
 
 $row = $result->fetch_all();
+//print_r($row);
+print_r($countries);
