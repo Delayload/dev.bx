@@ -2,6 +2,8 @@
 
 require_once "connect.php";
 
+$games = mysqli_query($connection, $query);
+$games = mysqli_fetch_all($games);
 ?>
 <!doctype html>
 <html lang="en">
@@ -10,28 +12,131 @@ require_once "connect.php";
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" href="/css/styles.css"/>
-	<title>Document</title>
+	<title>Tournament</title>
 </head>
 <body>
 	<h1>Tournament</h1>
-	<?php
-		$games = mysqli_query($connection, $query);
-		$games = mysqli_fetch_all($games);
-		foreach ($games as $game) {
-			echo '
+	<div class="wrap">
+		<div class="stage">
+			<p class="round__name">1\8 Финала</p>
+			<?php
+			foreach ($games as $game) {
+				if ($game[4] == '1/8') {
+					echo '
 				<div class="game">
 					<div class="country">
-						<p class="country__name">'.$game[0].'</p>
-						<p class="country__score">'.$game[2].'</p>
+						<div class="country__name">
+							<p>'.$game[0].'</p>
+						</div>
+						<div class="country__score">
+							<p>'.$game[2].'</p>
+						</div>
 					</div>
 					<div class="country">
-						<p class="country__name">'.$game[1].'</p>
-						<p class="country__score">'.$game[3].'</p>
+						<div class="country__name">
+							<p>'.$game[1].'</p>
+						</div>
+						<div class="country__score">
+							<p>'.$game[3].'</p>
+						</div>
 					</div>
-					<p class="game__stage">'.$game[4].'</p>
 					<button type="button">Change</button>
 				</div>
-		';}
-	?>
+				';
+				}
+			}
+			?>
+		</div>
+		<div class="stage">
+			<p class="round__name">1\4 Финала</p>
+			<?php
+			foreach ($games as $game) {
+				if ($game[4] == '1/4') {
+					echo '
+				<div class="game">
+					<div class="country">
+						<div class="country__name">
+							<p>'.$game[0].'</p>
+						</div>
+						<div class="country__score">
+							<p>'.$game[2].'</p>
+						</div>
+					</div>
+					<div class="country">
+						<div class="country__name">
+							<p>'.$game[1].'</p>
+						</div>
+						<div class="country__score">
+							<p>'.$game[3].'</p>
+						</div>
+					</div>
+					<button type="button">Change</button>
+				</div>
+				';
+				}
+			}
+			?>
+		</div>
+		<div class="stage">
+			<p class="round__name">1\2 Финала</p>
+			<?php
+			foreach ($games as $game) {
+				if ($game[4] == '1/2') {
+					echo '
+				<div class="game">
+					<div class="country">
+						<div class="country__name">
+							<p>'.$game[0].'</p>
+						</div>
+						<div class="country__score">
+							<p>'.$game[2].'</p>
+						</div>
+					</div>
+					<div class="country">
+						<div class="country__name">
+							<p>'.$game[1].'</p>
+						</div>
+						<div class="country__score">
+							<p>'.$game[3].'</p>
+						</div>
+					</div>
+					<button type="button">Change</button>
+				</div>
+				';
+				}
+			}
+			?>
+		</div>
+		<div class="stage">
+			<?php
+			foreach ($games as $game) {
+				if ($game[4] != '1/8' and $game[4] != '1/4' and $game[4] != '1/2') {
+					echo '
+				<p class="game__stage">'.$game[4].'</p>
+				<div class="game">
+					<div class="country">
+						<div class="country__name">
+							<p>'.$game[0].'</p>
+						</div>
+						<div class="country__score">
+							<p>'.$game[2].'</p>
+						</div>
+					</div>
+					<div class="country">
+						<div class="country__name">
+							<p>'.$game[1].'</p>
+						</div>
+						<div class="country__score">
+							<p>'.$game[3].'</p>
+						</div>
+					</div>
+					<button type="button">Change</button>
+				</div>
+				';
+				}
+			}
+			?>
+		</div>
+	</div>
 </body>
 </html>

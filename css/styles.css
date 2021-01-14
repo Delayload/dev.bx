@@ -1,3 +1,47 @@
+body {
+	background-color: rgba(225,225,225,0.9);
+	font-family: 'Istok Web', sans-serif;
+}
+
+h1 {
+	text-align: center;
+}
+
+.wrap {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
 .game {
-	background-color: wheat;
+	margin-bottom: 20px;
+}
+
+.country {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 3px 0;
+	background-color: white;
+}
+
+.country__name {
+	padding: 5px;
+	width: 100%;
+}
+
+.country__name p {
+	margin: 0px;
+}
+
+.country__score {
+	padding: 5px;
+}
+
+.country__score p {
+	margin: 0px;
+	color: #2C7399;
+	font-weight: bold;
+	font-family: 'Roboto Condensed', sans-serif;
 }
