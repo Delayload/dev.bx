@@ -17,11 +17,11 @@ VALUES (1, 'Uruguay'),
        (16, 'England');
 
 INSERT IGNORE INTO stage (ID, NAME)
-VALUES (1, '1/8'),
-       (2, '1/4'),
-       (3, '1/2'),
-       (4, '3rd place'),
-       (5, 'Final');
+VALUES (1, '8'),
+       (2, '4'),
+       (3, '2'),
+       (4, '1'),
+       (5, '0');
 
 INSERT IGNORE INTO game (ID, FIRST_TEAM_ID, SECOND_TEAM_ID, FIRST_TEAM_SCORE, SECOND_TEAM_SCORE, STAGE)
 VALUES (1, 1, 2, 2, 1, 1),

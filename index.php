@@ -4,6 +4,7 @@ require_once "connect.php";
 
 $games = mysqli_query($connection, $query);
 $games = mysqli_fetch_all($games);
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -16,33 +17,33 @@ $games = mysqli_fetch_all($games);
 </head>
 <body>
 	<h1>Tournament</h1>
-	<div class="wrap">
+	<div class="table">
 		<div class="stage">
 			<p class="round__name">1\8 Финала</p>
 			<?php
-			foreach ($games as $game) {
-				if ($game[4] == '1/8') {
+			for($i = 0; $i < count($games); ++$i) {
+				if ($games[$i][4] == '1/8') {
 					echo '
-				<div class="game">
-					<div class="country">
-						<div class="country__name">
-							<p>'.$game[0].'</p>
-						</div>
-						<div class="country__score">
-							<p>'.$game[2].'</p>
-						</div>
-					</div>
-					<div class="country">
-						<div class="country__name">
-							<p>'.$game[1].'</p>
-						</div>
-						<div class="country__score">
-							<p>'.$game[3].'</p>
-						</div>
-					</div>
-					<button type="button">Change</button>
+		<div class="game">
+			<div class="country">
+				<div class="country__name">
+					<p>'.$games[$i][0].'</p>
 				</div>
-				';
+				<div class="country__score">
+					<p>'.$games[$i][2].'</p>
+				</div>
+			</div>
+			<div class="country">
+				<div class="country__name">
+					<p>'.$games[$i][1].'</p>
+				</div>
+				<div class="country__score">
+					<p>'.$games[$i][3].'</p>
+				</div>
+			</div>
+			<button type="button">Change</button>
+		</div>
+		';
 				}
 			}
 			?>
@@ -50,29 +51,29 @@ $games = mysqli_fetch_all($games);
 		<div class="stage">
 			<p class="round__name">1\4 Финала</p>
 			<?php
-			foreach ($games as $game) {
-				if ($game[4] == '1/4') {
+			for($i = 0; $i < count($games); ++$i) {
+				if ($games[$i][4] == '1/4') {
 					echo '
-				<div class="game">
-					<div class="country">
-						<div class="country__name">
-							<p>'.$game[0].'</p>
-						</div>
-						<div class="country__score">
-							<p>'.$game[2].'</p>
-						</div>
+			<div class="game">
+				<div class="country">
+					<div class="country__name">
+						<p>'.$games[$i][0].'</p>
 					</div>
-					<div class="country">
-						<div class="country__name">
-							<p>'.$game[1].'</p>
-						</div>
-						<div class="country__score">
-							<p>'.$game[3].'</p>
-						</div>
+					<div class="country__score">
+						<p>'.$games[$i][2].'</p>
 					</div>
-					<button type="button">Change</button>
 				</div>
-				';
+				<div class="country">
+					<div class="country__name">
+						<p>'.$games[$i][1].'</p>
+					</div>
+					<div class="country__score">
+						<p>'.$games[$i][3].'</p>
+					</div>
+				</div>
+				<button type="button">Change</button>
+			</div>
+			';
 				}
 			}
 			?>
@@ -80,63 +81,116 @@ $games = mysqli_fetch_all($games);
 		<div class="stage">
 			<p class="round__name">1\2 Финала</p>
 			<?php
-			foreach ($games as $game) {
-				if ($game[4] == '1/2') {
+			for($i = 0; $i < count($games); ++$i) {
+				if ($games[$i][4] == '1/2') {
 					echo '
-				<div class="game">
-					<div class="country">
-						<div class="country__name">
-							<p>'.$game[0].'</p>
-						</div>
-						<div class="country__score">
-							<p>'.$game[2].'</p>
-						</div>
+			<div class="game">
+				<div class="country">
+					<div class="country__name">
+						<p>'.$games[$i][0].'</p>
 					</div>
-					<div class="country">
-						<div class="country__name">
-							<p>'.$game[1].'</p>
-						</div>
-						<div class="country__score">
-							<p>'.$game[3].'</p>
-						</div>
+					<div class="country__score">
+						<p>'.$games[$i][2].'</p>
 					</div>
-					<button type="button">Change</button>
 				</div>
-				';
+				<div class="country">
+					<div class="country__name">
+						<p>'.$games[$i][1].'</p>
+					</div>
+					<div class="country__score">
+						<p>'.$games[$i][3].'</p>
+					</div>
+				</div>
+				<button type="button">Change</button>
+			</div>
+			';
 				}
 			}
 			?>
 		</div>
 		<div class="stage">
+			<p class="round__name">3rd place</p>
 			<?php
-			foreach ($games as $game) {
-				if ($game[4] != '1/8' and $game[4] != '1/4' and $game[4] != '1/2') {
+			for($i = 0; $i < count($games); ++$i) {
+				if ($games[$i][4] == '3rd place') {
 					echo '
-				<p class="game__stage">'.$game[4].'</p>
-				<div class="game">
-					<div class="country">
-						<div class="country__name">
-							<p>'.$game[0].'</p>
-						</div>
-						<div class="country__score">
-							<p>'.$game[2].'</p>
-						</div>
+			<div class="game">
+				<div class="country">
+					<div class="country__name">
+						<p>'.$games[$i][0].'</p>
 					</div>
-					<div class="country">
-						<div class="country__name">
-							<p>'.$game[1].'</p>
-						</div>
-						<div class="country__score">
-							<p>'.$game[3].'</p>
-						</div>
+					<div class="country__score">
+						<p>'.$games[$i][2].'</p>
 					</div>
-					<button type="button">Change</button>
 				</div>
-				';
+				<div class="country">
+					<div class="country__name">
+						<p>'.$games[$i][1].'</p>
+					</div>
+					<div class="country__score">
+						<p>'.$games[$i][3].'</p>
+					</div>
+				</div>
+				<button type="button">Change</button>
+			</div>
+			';
 				}
 			}
 			?>
 		</div>
+		<div class="stage">
+			<p class="round__name">Final</p>
+			<?php
+			for($i = 0; $i < count($games); ++$i) {
+				if ($games[$i][4] == 'Final') {
+					echo '
+			<div class="game">
+				<div class="country">
+					<div class="country__name">
+						<p>'.$games[$i][0].'</p>
+					</div>
+					<div class="country__score">
+						<p>'.$games[$i][2].'</p>
+					</div>
+				</div>
+				<div class="country">
+					<div class="country__name">
+						<p>'.$games[$i][1].'</p>
+					</div>
+					<div class="country__score">
+						<p>'.$games[$i][3].'</p>
+					</div>
+				</div>
+				<button type="button">Change</button>
+			</div>
+			';
+				}
+			}
+			?>
+		</div>
+	</div>
+
+	<div class="report">
+		<table class="report__table">
+			<tr>
+				<th>команда</th>
+				<th>место в турнире</th>
+				<th>общая результативность команды по очкам/голам за весь турнир</th>
+				<th>средняя результативность за матч</th>
+				<th>лучшая результативность за матч</th>
+			</tr>
+			<?php
+			foreach ($games as $game) {
+				if ($games[$i][4] == '1/8') {
+					echo '
+			<tr class="game">
+				<td class="country">'.$game[0].'</td>
+			</tr>
+			';
+				}
+			}
+			?>
+		</table>
 	</div>
 </body>
 </html>
