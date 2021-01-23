@@ -7,41 +7,60 @@ h1 {
 	text-align: center;
 }
 
-.table {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
+.tabletree {
+	margin: 0 !important;
+	padding: 0 !important;
+	line-height: normal;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+.tabletree ul {
+	position: relative;
+	display: table-cell;
+	margin: 0 !important;
+	padding: 0 0 0 11px !important;
+	vertical-align: middle;
+}
+.tabletree li {
+	display: table;
+	position: relative;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+.tabletree div {
+	display: table-cell;
+	vertical-align: middle;
+}
+/* Линии */
+.tabletree ul:before,
+.tabletree ul li:after,
+.tabletree ul li:not(:last-child):not(:first-child):before {
+	content: "";
+	position: absolute;
+	left: -6px;
+	top: 0;
+	width: 5px;
+	height: 50%;
+	border-bottom: 1px solid #999;
+}
+.tabletree ul:before {
+	left: 0;
+}
+.tabletree ul li:not(:only-child):after {
+	border-left: 1px solid #999;
+}
+.tabletree ul li:not(:only-child):first-child:after {
+	top: 50%;
+	border-top: 1px solid #999;
+	border-bottom-color: transparent;
+}
+.tabletree ul li:not(:last-child):not(:first-child):before {
+	height: 100%;
+	border-left: 1px solid #999;
+	border-bottom-color: transparent;
 }
 
-.game {
-	margin-bottom: 20px;
-}
-
-.country {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin: 3px 0;
-	background-color: white;
-}
-
-.country__name {
-	padding: 5px;
-	width: 100%;
-}
-
-.country__name p {
-	margin: 0px;
-}
-
-.country__score {
-	padding: 5px;
-}
-
-.country__score p {
-	margin: 0px;
-	color: #2C7399;
-	font-weight: bold;
-	font-family: 'Roboto Condensed', sans-serif;
+.tabletree ul:before {
+	border: none;
+	content: none;
 }
